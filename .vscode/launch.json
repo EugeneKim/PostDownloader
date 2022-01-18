@@ -1,0 +1,34 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "BatchSubmitter Launch",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build BatchSubmitter",
+			"program": "${workspaceFolder}/BatchSubmitter/bin/Debug/net6.0/Batchsubmitter.dll",
+			"cwd": "${workspaceFolder}/Batchsubmitter",
+			"stopAtEntry": false
+		},
+		{
+			"name": "Post Launch",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build PostDownloader",
+			"program": "${workspaceFolder}/PostDownloader/bin/Debug/net6.0/PostDownloader.dll",
+			"args": ["/post:1", "${workspaceFolder}"],
+			"cwd": "${workspaceFolder}/PostDownloader",
+			"stopAtEntry": false
+		},
+		{
+			"name": "Merge Launch",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build PostDownloader",
+			"program": "${workspaceFolder}/PostDownloader/bin/Debug/net6.0/PostDownloader.dll",
+			"args": ["/merge", "${workspaceFolder}"],
+			"cwd": "${workspaceFolder}/PostDownloader",
+			"stopAtEntry": false
+		}
+	]
+}
